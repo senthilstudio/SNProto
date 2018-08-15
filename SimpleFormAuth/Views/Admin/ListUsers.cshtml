@@ -1,0 +1,43 @@
+﻿@model SimpleFormAuth.Models.StudentModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminHome.cshtml";
+}
+<br />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users List</title>
+</head>
+<body>
+@{
+    WebGrid grid = new WebGrid(null, rowsPerPage: @Model.PageSize);
+    grid.Bind(Model.Students, autoSortAndPage: true, rowCount: @Model.PageSize);
+}
+
+<link href="https://code.jquery.com/ui/1.12.0-rc.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<br />
+@grid.GetHtml(tableStyle: "table table-bordered",
+ mode: WebGridPagerModes.All,
+ firstText: "<< First",
+ previousText: "< Prev",
+ nextText: "Next >",
+ lastText: "Last >>",
+    columns: grid.Columns(
+    grid.Column("UserID", " UserID"),
+    grid.Column("Name", "Name"),
+    grid.Column("UserName", "UserName"),
+    grid.Column("Mobile", "Mobile"),
+    grid.Column("Status", "Status"),
+    grid.Column("Locked", "Locked"),
+    grid.Column("CreatedDate", "Created Date"),
+    grid.Column(header: "Action",
+                format: @<text><a data-value='@item.UserID' href='javascript:void(0)' class='btnEdit'>Edit</a></text>)
+))
+<div>
+</div>
+</body>
+</html>

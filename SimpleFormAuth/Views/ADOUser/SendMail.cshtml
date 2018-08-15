@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SendEmail</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Error
+
+        @using (Html.BeginForm("SendMail", "ADOUser", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>@Html.Label("Sender")</td>
+                    <td>@Html.TextBox("sender")</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Password")</td>
+                    <td>@Html.Password("senderpwd")</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Receiver")</td>
+                    <td>@Html.TextBox("receiver")</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Subject")</td>
+                    <td>@Html.TextBox("Subject")</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Message")</td>
+                    <td>@Html.TextBox("Message")</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Send Mail" />
+                    </td>
+                    <td>
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

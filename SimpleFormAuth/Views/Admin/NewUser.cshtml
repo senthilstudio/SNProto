@@ -1,0 +1,43 @@
+﻿@model SimpleFormAuth.Models.OTCUsersModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminHome.cshtml";
+}
+<br/>
+@using (Html.BeginForm("NewUser", "Admin", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.UserName)</td>
+            <td>
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Mail)</td>
+            <td>
+                @Html.EditorFor(model => model.Mail)
+                @Html.ValidationMessageFor(model => model.Mail)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Mobile)</td>
+            <td>
+                @Html.EditorFor(model => model.Mobile)
+                @Html.ValidationMessageFor(model => model.Mobile)
+            </td>
+        </tr>
+        <tr>
+            <td> @ViewBag.Error <br /> @ViewBag.Message</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create User" />
+            </td>
+            <td>
+                <input type="reset" value="Reset" />
+            </td>
+        </tr>
+    </table>
+}

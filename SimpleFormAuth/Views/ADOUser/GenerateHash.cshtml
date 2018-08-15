@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateMD5Data</title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("GenerateMD5Data", "ADOUser", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("User Name")</td>
+                <td>@Html.TextBox("UserName")</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Password")</td>
+                <td>@Html.Password("Password")</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Get Hash"/>
+                </td>
+                <td>
+                    <input type="reset" value="Reset" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>

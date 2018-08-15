@@ -1,0 +1,56 @@
+﻿@model SimpleFormAuth.Models.UsersModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Authorize", "ADOUser", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.UseName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.UseName)
+                        @Html.ValidationMessageFor(model => model.UseName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Password)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.LogginErrorMessage)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Reset" /></td>
+                    <td>
+                        <input type="submit" value="Login" />
+                    </td>
+                </tr>
+                <script src="~/scripts/jquery-1.10.2.min.js"></script>
+                <script src="~/scripts/jquery.validate.min.js"></script>
+                <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+            </table>
+        }
+    </div>
+</body>
+</html>
